@@ -19,8 +19,14 @@ inputs.forEach((input, index) => {
 
   input.addEventListener("keydown", (e) => {
     if (e.key === "Backspace" && !input.value && index > 0) {
+      input.classList.remove("focused");
       inputs[index - 1].focus();
       inputs[index - 1].classList.add("focused");
     }
   });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  inputs[0].focus();
+  inputs[0].classList.add("focused");
 });
